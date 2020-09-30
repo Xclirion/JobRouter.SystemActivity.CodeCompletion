@@ -1,0 +1,20 @@
+{
+    "name": "xclirion/jobrouter.systemactivity.codecompletion",
+    "description": "PHP code completion for JobRouter Systemactivities",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ulf Kadner",
+            "email": "ulf.kadner@xclirion.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "": "src/",
+            "JobRouter\\": "src/JobRouter"
+        }
+    }
+}

@@ -503,7 +503,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @return null|string|string[]
      * @throws \JobRouterException
      */
-    public function getProcessLabel($username='') : null {}
+    public function getProcessLabel($username='') {}
     /**
      * Returns processid
      * @return    string    processid
@@ -569,17 +569,17 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * Checks if this is a request
      * @return true or false
      */
-    public function isRequest() : true {}
+    public function isRequest() : bool {}
     /**
      * Checks if step is assigned
      * @return true or false
      */
-    public function isAssigned() : true {}
+    public function isAssigned() : bool {}
     /**
      * Checks if this is an answer
      * @return true or false
      */
-    public function isAnswer() : true {}
+    public function isAnswer() : bool {}
     /**
      * Validates if user has rights to start this incident.
      * @return bool true if user is allowed to start this incident
@@ -696,7 +696,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @return mixed value of process table field
      * @throws \JobRouterException
      */
-    public function getTableValue($fieldname, $formatValue=false, $sysFormat=false, $rawValue=false) : mixed {}
+    public function getTableValue($fieldname, $formatValue=false, $sysFormat=false, $rawValue=false) {}
     /**
      * Returns the previous value of a specific process table field.
      * The previous value of the field is the final value from the previous step.
@@ -709,7 +709,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @throws \JobRouterException
      * @throws \InvalidArgumentException
      */
-    public function getOldTableValue($fieldname, $formatValue=false, $sysFormat=false, $rawValue=false) : mixed {}
+    public function getOldTableValue($fieldname, $formatValue=false, $sysFormat=false, $rawValue=false) {}
     /**
      * Sets the value of a specific process table field.
      * @param string $fieldname Name of process table field
@@ -730,7 +730,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @return mixed value of subtable field
      * @throws \JobRouterException
      */
-    public function getSubtableValue($subtable, $row, $fieldname, $formatValue=false, $rawValue=false, $sysFormat=false) : mixed {}
+    public function getSubtableValue($subtable, $row, $fieldname, $formatValue=false, $rawValue=false, $sysFormat=false) {}
     /**
      * Sets the value of a specific subtable field.
      * @param string $subtable Name of subtable
@@ -840,7 +840,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @return mixed
      * @throws \JobRouterException
      */
-    public function replaceMessageVariables($value, $escapeForSQL, IUser $user) : mixed {}
+    public function replaceMessageVariables($value, $escapeForSQL, IUser $user) {}
     /**
      * Reserves step for current user.
      * @throws \JobRouterException
@@ -1030,7 +1030,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @param int $type
      * @param string $avatar
      */
-    public function addMessage($message, $type=MessagesManager::MSG_WARNING, $avatar = '') {}
+    public function addMessage($message, $type, $avatar = '') {}
     /**
      * Loads all messages for current step.
      * @throws JobRouterException
@@ -1070,7 +1070,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
      * @return mixed
      * @throws \JobRouterException
      */
-    public function getDialogElements() : mixed {}
+    public function getDialogElements() {}
     /**
      * @param $dialogFieldName
      * @return bool
@@ -1279,7 +1279,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
     public function setPriority($priority) {}
     public function setDialogElementAttributes($dialogElementAttributes) {}
     public function getDialogElementAttributes() {}
-    public function appendRuleLog(Rule_RuleLog $ruleLog) {}
+    public function appendRuleLog($ruleLog) {}
     public function getCurrentSubtableForRuleExecution() {}
     public function getCurrentSubtableRowIdForRuleExecution() {}
     public function setCurrentSubtableRowIdForRuleExecution($rowId) {}
@@ -1313,7 +1313,7 @@ class Step implements JobRouter\Engine\Settings\Xml\ValueResolverInterface, IPro
     /**
      * @return boolean
      */
-    public function isInitializationFunctionCalled() : boolean {}
+    public function isInitializationFunctionCalled() : bool {}
     public function hasEscalated($testCurrentDate, $testOutDate) {}
     /**
      * @param string $subtable
@@ -2570,7 +2570,7 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
      * @return mixed
      * @throws \JobRouterException
      */
-    public final function getSubtableValue( $subtable, $row, $fieldname ) : mixed {}
+    public final function getSubtableValue( $subtable, $row, $fieldname ) {}
     /**
      * Set a subtable value
      *
@@ -2648,7 +2648,7 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
      *
      * @return null
      */
-    public final function getSystemActivityVar( $varKey, $defaultValueIfUnset ) : null {}
+    public final function getSystemActivityVar( $varKey, $defaultValueIfUnset ) {}
     /**
      * Returns the version of the system activity
      */
@@ -2698,7 +2698,7 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
      * @return mixed
      * @throws \JobRouterException
      */
-    protected final function getTableValue( $fieldname, $rawValue = false ) : mixed {}
+    protected final function getTableValue( $fieldname, $rawValue = false ) {}
     protected final function getTableFieldType( $fieldName ) {}
     protected final function getSubtableFieldType( $subtable, $fieldName ) {}
     protected final function getSubtableCount( $subtable ) {}
@@ -2712,7 +2712,7 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
     protected final function getSPIFields() {}
     protected final function getConstant( $constantName ) {}
     protected final function isUDFieldFromWorktable( $id ) {}
-    protected final function getLists( DOMNodeList $listNodes, DOMXPath $xpath ) {}
+    protected final function getLists( \DOMNodeList $listNodes, \DOMXPath $xpath ) {}
     protected final function readSettings() {}
     protected final function getParameterValue( $sourceType, $field, $subtable = '', $row = '', $datatype = '' ) {}
     protected final function setParameterValue( $settings, $data ) {}
@@ -2738,10 +2738,10 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
     protected final function removeProperty( $propertyKey ) {}
     protected final function executeMethodForSubtable( $method, $subtableName ) {}
     protected final function ensureSubtableIsNotUsed() {}
-    protected final function resolveParameterValueByDOMNode( DOMElement $parameterNode ) {}
-    protected final function resolveDomNodeListToArray( DOMNodeList $listNodes ) {}
-    protected final function resolveListParameterValueByDOMNode( DOMElement $listNode ) {}
-    protected final function storeParameterValueByDOMNode( DOMElement $parameterNode, $fieldValue ) {}
+    protected final function resolveParameterValueByDOMNode( \DOMElement $parameterNode ) {}
+    protected final function resolveDomNodeListToArray( \DOMNodeList $listNodes ) {}
+    protected final function resolveListParameterValueByDOMNode( \DOMElement $listNode ) {}
+    protected final function storeParameterValueByDOMNode( \DOMElement $parameterNode, $fieldValue ) {}
     protected final function getSettingsXpath() {}
     /**
      * @return string
@@ -2760,10 +2760,12 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
     protected final function resolveParameterAsNodeByFieldId( $parameterType, $fieldId ) {}
     protected final function resolveParameterListAsNodeByListId( $parameterType, $listId ) {}
     protected final function resolveUserDefinedParameterAttribute( $udfieldId, $attributeName ) {}
-    protected final function resolveDomNodeListToAttributes( DOMNodeList $listNodes ) {}
+    protected final function resolveDomNodeListToAttributes( \DOMNodeList $listNodes ) {}
     protected final function disableCastOfEmptyDecimalValue() {}
     protected final function getCurrentSubtableRowId() {}
     protected final function getCurrentSubtable() {}
+    public static function getImagePath() {}
+    public static function getLanguagePath() {}
 }
 
 

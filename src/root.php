@@ -2401,7 +2401,7 @@ class JobRouterException extends \Exception implements \Throwable {
     protected $code = 0;
     protected $file;
     protected $line;
-    public function __construct($message, $code=0, \Throwable $previous) {}
+    public function __construct($message, $code=0, ?\Throwable $previous = null ) {}
 }
 abstract class AbstractSystemActivityAPI implements \ISystemActivity
 {

@@ -2665,7 +2665,7 @@ abstract class AbstractSystemActivityAPI implements \ISystemActivity
      *
      * @return array
      */
-    public function getUDL( $udl, $elementId ) : array {}
+    public function getUDL( $udl, $elementId ) {}
     public function getContentOfUserDefinedParameter( $parameterID, $elementID ) {}
     public final function getContentOfUserDefinedSetting( $settingID, $settingName = '', $settingDesc = '' ) {}
     public function getOnChangeOfUserDefinedParameter( $parameterID, $elementID ) {}

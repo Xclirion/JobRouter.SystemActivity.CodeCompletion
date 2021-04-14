@@ -168,7 +168,7 @@ interface ConnectionInterface {
      * @param bool $loggingEnabled
      * @return mixed
      */
-    public function prepare($query, array $types, $resultTypes, \JobRouter\Log\LogInfoInterface $logInfoInterface, $loggingEnabled=true);
+    public function prepare($query, array $types, $resultTypes, ?\JobRouter\Log\LogInfoInterface $logInfoInterface = null, $loggingEnabled=true);
     /**
      * Executes a prepared SQL statement.
      * @param mixed $stmt
@@ -177,7 +177,7 @@ interface ConnectionInterface {
      * @param bool $loggingEnabled
      * @return mixed
      */
-    public function execute($stmt, array $params, \JobRouter\Log\LogInfoInterface $logInfoInterface, $loggingEnabled=true);
+    public function execute($stmt, array $params, ?\JobRouter\Log\LogInfoInterface $logInfoInterface = null, $loggingEnabled=true);
     /**
      * Executes an, optionally parametrized, SQL query.
      * @param string $sql
@@ -187,7 +187,7 @@ interface ConnectionInterface {
      * @return mixed
      * @throws \JobRouterException
      */
-    public function preparedSelect(string $sql, array $params, array $types, \JobRouter\Log\LogInfoInterface $logInfoInterface);
+    public function preparedSelect(string $sql, array $params, array $types, ?\JobRouter\Log\LogInfoInterface $logInfoInterface = null);
     /**
      * @param string $sql
      * @param array $params
@@ -196,7 +196,7 @@ interface ConnectionInterface {
      * @return mixed
      * @throws \JobRouterException
      */
-    public function preparedExecute(string $sql, array $params, array $types, \JobRouter\Log\LogInfoInterface $logInfoInterface);
+    public function preparedExecute(string $sql, array $params, array $types, ?\JobRouter\Log\LogInfoInterface $logInfoInterface = null);
     /**
      * Returns the ID of the last inserted row, or the last value from a sequence object,
      * depending on the underlying driver.
